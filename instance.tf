@@ -15,6 +15,10 @@ resource "aws_instance" "app" {
     device_index         = 1
   }
 
+  depends_on = [
+    aws_instance.database
+  ]
+
   tags = {
     "Name" = "${var.app}_app"
   }
